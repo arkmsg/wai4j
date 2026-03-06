@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * OpenAI GPT 服务实现
  */
-public class OpenAiService implements AiService, AiServiceProvider {
+public class OpenAiService implements AiService, AiServiceProvider, AiServiceEx {
 
     private static final String DEFAULT_BASE_URL = "https://api.openai.com/v1";
     private static final String DEFAULT_MODEL = "gpt-4";
@@ -93,6 +93,61 @@ public class OpenAiService implements AiService, AiServiceProvider {
         }
     }
 
+    @Override
+    public com.whaleal.ai.EmbeddingResponse embedding(AiConfig config, List<String> texts) {
+        try {
+            OpenAiApi api = createApi(config);
+            EmbeddingRequest request = new EmbeddingRequest();
+            request.setModel("text-embedding-3-small");
+            request.setInput(texts);
+            
+            retrofit2.Response<com.whaleal.ai.EmbeddingResponse> response = api.embedding(request).execute();
+            
+            if (response.body() == null) {
+                throw new AiException("Empty response from OpenAI embedding");
+            }
+            
+            return response.body();
+        } catch (Exception e) {
+            throw new AiException("OpenAI embedding error: " + e.getMessage(), e);
+        }
+    }
+
+    @Override
+    public com.whaleal.ai.ListModelsResponse listModels(AiConfig config) {
+        try {
+            OpenAiApi api = createApi(config);
+            retrofit2.Response<com.whaleal.ai.ListModelsResponse> response = api.listModels().execute();
+            
+            if (response.body() == null) {
+                throw new AiException("Empty response from OpenAI listModels");
+            }
+            
+            return response.body();
+        } catch (Exception e) {
+            throw new AiException("OpenAI listModels error: " + e.getMessage(), e);
+        }
+    }
+
+    @Override
+    public com.whaleal.ai.ModerationResponse moderation(AiConfig config, String text) {
+        try {
+            OpenAiApi api = createApi(config);
+            ModerationRequest request = new ModerationRequest();
+            request.setInput(text);
+            
+            retrofit2.Response<com.whaleal.ai.ModerationResponse> response = api.moderation(request).execute();
+            
+            if (response.body() == null) {
+                throw new AiException("Empty response from OpenAI moderation");
+            }
+            
+            return response.body();
+        } catch (Exception e) {
+            throw new AiException("OpenAI moderation error: " + e.getMessage(), e);
+        }
+    }
+
     private OpenAiApi createApi(AiConfig config) {
         String baseUrl = config.getBaseUrl() != null ? config.getBaseUrl() : DEFAULT_BASE_URL;
         
@@ -147,6 +202,15 @@ public class OpenAiService implements AiService, AiServiceProvider {
         @POST("/chat/completions")
         @Streaming
         Flux<ChatCompletionResponse> chatCompletionStream(@Body ChatCompletionRequest request);
+
+        @POST("/embeddings")
+        retrofit2.Call<com.whaleal.ai.EmbeddingResponse> embedding(@Body EmbeddingRequest request);
+
+        @GET("/models")
+        retrofit2.Call<com.whaleal.ai.ListModelsResponse> listModels();
+
+        @POST("/moderations")
+        retrofit2.Call<com.whaleal.ai.ModerationResponse> moderation(@Body ModerationRequest request);
     }
 
     // 请求和响应模型
@@ -207,5 +271,22 @@ public class OpenAiService implements AiService, AiServiceProvider {
             @com.fasterxml.jackson.annotation.JsonProperty("finish_reason")
             private String finishReason;
         }
+    }
+
+    @lombok.Data
+    @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
+    public static class EmbeddingRequest {
+        @com.fasterxml.jackson.annotation.JsonProperty("model")
+        private String model;
+
+        @com.fasterxml.jackson.annotation.JsonProperty("input")
+        private List<String> input;
+    }
+
+    @lombok.Data
+    @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
+    public static class ModerationRequest {
+        @com.fasterxml.jackson.annotation.JsonProperty("input")
+        private String input;
     }
 }

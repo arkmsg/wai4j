@@ -1,6 +1,8 @@
+com/whaleal/ai/openai/OpenAiService$EmbeddingRequest.class
 com/whaleal/ai/openai/OpenAiService$ChatCompletionResponse$Choice.class
 com/whaleal/ai/openai/OpenAiService$ChatMessage.class
 com/whaleal/ai/openai/OpenAiService.class
 com/whaleal/ai/openai/OpenAiService$ChatCompletionResponse.class
 com/whaleal/ai/openai/OpenAiService$ChatCompletionRequest.class
 com/whaleal/ai/openai/OpenAiService$OpenAiApi.class
+com/whaleal/ai/openai/OpenAiService$ModerationRequest.class
