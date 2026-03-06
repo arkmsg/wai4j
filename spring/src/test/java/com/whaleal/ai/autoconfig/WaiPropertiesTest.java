@@ -43,8 +43,10 @@ public class WaiPropertiesTest {
     @Test
     public void testProviderConfigExtra() {
         WaiProperties.ProviderConfig config = new WaiProperties.ProviderConfig();
-        config.setExtra("key1", "value1");
-        config.setExtra("key2", 123);
+        java.util.Map<String, Object> extra = new java.util.HashMap<>();
+        extra.put("key1", "value1");
+        extra.put("key2", 123);
+        config.setExtra(extra);
 
         assertEquals("value1", config.getExtra().get("key1"));
         assertEquals(123, config.getExtra().get("key2"));

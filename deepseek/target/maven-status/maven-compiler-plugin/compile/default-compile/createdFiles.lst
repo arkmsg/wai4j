@@ -1,7 +1,14 @@
 com/whaleal/ai/deepseek/ChatCompletionResponse$Usage.class
+com/whaleal/ai/deepseek/DeepSeekService$ChatCompletionResponse$Choice.class
 com/whaleal/ai/deepseek/ChatCompletionRequest.class
 com/whaleal/ai/deepseek/ChatCompletionResponse.class
+com/whaleal/ai/deepseek/DeepSeekService$EmbeddingRequest.class
+com/whaleal/ai/deepseek/DeepSeekService$ChatCompletionResponse.class
 com/whaleal/ai/deepseek/ChatMessage.class
 com/whaleal/ai/deepseek/ChatCompletionResponse$Choice.class
+com/whaleal/ai/deepseek/DeepSeekService$ChatMessage.class
+com/whaleal/ai/deepseek/DeepSeekService$ChatCompletionRequest.class
+com/whaleal/ai/deepseek/DeepSeekService$ModerationRequest.class
+com/whaleal/ai/deepseek/DeepSeekService$DeepSeekApi.class
 com/whaleal/ai/deepseek/DeepSeekService.class
 com/whaleal/ai/deepseek/DeepSeekApi.class

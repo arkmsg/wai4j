@@ -1,6 +1,13 @@
 /Users/wh/IdeaProjects/whaleal-sys/project/ai/wai/core/src/main/java/com/whaleal/ai/Ai.java
 /Users/wh/IdeaProjects/whaleal-sys/project/ai/wai/core/src/main/java/com/whaleal/ai/AiConfig.java
 /Users/wh/IdeaProjects/whaleal-sys/project/ai/wai/core/src/main/java/com/whaleal/ai/AiService.java
+/Users/wh/IdeaProjects/whaleal-sys/project/ai/wai/core/src/main/java/com/whaleal/ai/AiServiceEx.java
+/Users/wh/IdeaProjects/whaleal-sys/project/ai/wai/core/src/main/java/com/whaleal/ai/EmbeddingResponse.java
+/Users/wh/IdeaProjects/whaleal-sys/project/ai/wai/core/src/main/java/com/whaleal/ai/Function.java
+/Users/wh/IdeaProjects/whaleal-sys/project/ai/wai/core/src/main/java/com/whaleal/ai/ListModelsResponse.java
 /Users/wh/IdeaProjects/whaleal-sys/project/ai/wai/core/src/main/java/com/whaleal/ai/Message.java
+/Users/wh/IdeaProjects/whaleal-sys/project/ai/wai/core/src/main/java/com/whaleal/ai/ModerationResponse.java
+/Users/wh/IdeaProjects/whaleal-sys/project/ai/wai/core/src/main/java/com/whaleal/ai/SearchResponse.java
+/Users/wh/IdeaProjects/whaleal-sys/project/ai/wai/core/src/main/java/com/whaleal/ai/Tool.java
 /Users/wh/IdeaProjects/whaleal-sys/project/ai/wai/core/src/main/java/com/whaleal/ai/exception/AiException.java
 /Users/wh/IdeaProjects/whaleal-sys/project/ai/wai/core/src/main/java/com/whaleal/ai/spi/AiServiceProvider.java
