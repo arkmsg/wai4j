@@ -1,0 +1,6 @@
+com/whaleal/ai/exception/AiException.class
+com/whaleal/ai/Message.class
+com/whaleal/ai/AiConfig.class
+com/whaleal/ai/Ai.class
+com/whaleal/ai/AiService.class
+com/whaleal/ai/spi/AiServiceProvider.class

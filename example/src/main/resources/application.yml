@@ -1,0 +1,50 @@
+# WAI 配置示例
+wai:
+  # 默认提供商
+  default-provider: deepseek
+  
+  # 配置映射
+  configs:
+    deepseek:
+      api-key: ${DEEPSEEK_API_KEY:your-api-key-here}
+      model: deepseek-chat
+      base-url: https://api.deepseek.com/v1
+      connect-timeout: 30
+      read-timeout: 60
+      call-timeout: 120
+    
+    # OpenAI 配置示例
+    openai:
+      api-key: ${OPENAI_API_KEY:your-api-key-here}
+      model: gpt-4
+      base-url: https://api.openai.com/v1
+    
+    # Google Gemini 配置示例
+    gemini:
+      api-key: ${GEMINI_API_KEY:your-api-key-here}
+      model: gemini-ultra
+    
+    # 智谱 GLM 配置示例
+    glm:
+      api-key: ${GLM_API_KEY:your-api-key-here}
+      model: glm-4
+    
+    # 阿里云 Qwen 配置示例
+    qwen:
+      api-key: ${QWEN_API_KEY:your-api-key-here}
+      model: qwen-max
+    
+    # 字节豆包配置示例
+    doubao:
+      api-key: ${DOUBAO_API_KEY:your-api-key-here}
+      model: doubao-pro
+    
+    # X 平台 Grok 配置示例
+    grok:
+      api-key: ${GROK_API_KEY:your-api-key-here}
+      model: grok-1
+
+# 日志配置
+logging:
+  level:
+    com.whaleal.ai: DEBUG

@@ -1,0 +1,7 @@
+com/whaleal/ai/gemini/GeminiService$GenerateContentResponse$Candidate.class
+com/whaleal/ai/gemini/GeminiService.class
+com/whaleal/ai/gemini/GeminiService$GeminiApi.class
+com/whaleal/ai/gemini/GeminiService$GenerateContentRequest.class
+com/whaleal/ai/gemini/GeminiService$Content.class
+com/whaleal/ai/gemini/GeminiService$GenerateContentResponse.class
+com/whaleal/ai/gemini/GeminiService$Part.class

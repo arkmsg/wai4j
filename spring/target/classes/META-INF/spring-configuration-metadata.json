@@ -1,0 +1,32 @@
+{
+  "groups": [
+    {
+      "name": "wai",
+      "type": "com.whaleal.ai.autoconfig.WaiProperties",
+      "sourceType": "com.whaleal.ai.autoconfig.WaiProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "wai.configs",
+      "type": "java.util.Map<java.lang.String,com.whaleal.ai.autoconfig.WaiProperties$ProviderConfig>",
+      "description": "配置映射",
+      "sourceType": "com.whaleal.ai.autoconfig.WaiProperties"
+    },
+    {
+      "name": "wai.default-provider",
+      "type": "java.lang.String",
+      "description": "默认提供商",
+      "sourceType": "com.whaleal.ai.autoconfig.WaiProperties",
+      "defaultValue": "deepseek"
+    },
+    {
+      "name": "wai.enabled",
+      "type": "java.lang.Boolean",
+      "description": "是否启用",
+      "sourceType": "com.whaleal.ai.autoconfig.WaiProperties",
+      "defaultValue": true
+    }
+  ],
+  "hints": []
+}

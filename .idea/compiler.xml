@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="wai-core" />
+        <module name="wai-example" />
+        <module name="wai-local" />
+        <module name="wai-glm" />
+        <module name="wai-deepseek" />
+        <module name="wai-router" />
+        <module name="wai-spring-boot-starter" />
+        <module name="wai-doubao" />
+        <module name="wai-gemini" />
+        <module name="wai-openai" />
+        <module name="wai-qwen" />
+        <module name="wai-grok" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="wai-core" options="-parameters" />
+      <module name="wai-deepseek" options="-parameters" />
+      <module name="wai-doubao" options="-parameters" />
+      <module name="wai-example" options="-parameters" />
+      <module name="wai-gemini" options="-parameters" />
+      <module name="wai-glm" options="-parameters" />
+      <module name="wai-grok" options="-parameters" />
+      <module name="wai-local" options="-parameters" />
+      <module name="wai-openai" options="-parameters" />
+      <module name="wai-qwen" options="-parameters" />
+      <module name="wai-router" options="-parameters" />
+      <module name="wai-spring-boot-starter" options="-parameters" />
+      <module name="wai4j" options="-parameters" />
+    </option>
+  </component>
+</project>

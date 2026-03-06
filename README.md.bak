@@ -1,0 +1,153 @@
+# WAI - WhAlaI (Whale AI)
+
+简洁、优雅的 Java AI SDK，参考 Hutool-AI 设计，提供统一的接口集成多个主流 AI 模型。
+
+## 特性
+
+- ✅ 简洁的 API 设计，类似 Hutool 的工具类风格
+- ✅ 支持多个主流 AI 模型提供商
+- ✅ 统一的配置管理
+- ✅ 响应式编程支持
+- ✅ Spring Boot 自动配置
+- ✅ 支持本地模型 (LGBM 等)
+- ✅ 智能路由和负载均衡
+
+## 支持的模型
+
+### 三方 API
+- DeepSeek (深度求索)
+- OpenAI (GPT-4/GPT-3.5)
+- Google Gemini (Ultra/Pro)
+- 智谱 AI (GLM-4)
+- 阿里云 (Qwen3)
+- 字节豆包 (Doubao)
+- X 平台 (Grok)
+
+### 本地模型
+- LGBM (LightGBM)
+- 更多本地模型支持中...
+
+## 快速开始
+
+### Maven 依赖
+
+```xml
+<!-- 核心模块 -->
+<dependency>
+    <groupId>com.whaleal.ai</groupId>
+    <artifactId>wai4j-core</artifactId>
+    <version>1.0.0</version>
+</dependency>
+
+<!-- 按需引入模型适配器 -->
+<dependency>
+    <groupId>com.whaleal.ai</groupId>
+    <artifactId>wai4j-deepseek</artifactId>
+    <version>1.0.0</version>
+</dependency>
+
+<!-- 或使用 Spring Boot Starter -->
+<dependency>
+    <groupId>com.whaleal.ai</groupId>
+    <artifactId>wai4j-spring-boot-starter</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
+### 使用示例
+
+#### 1. 单次对话
+
+```java
+import com.whaleal.ai.Ai;
+import com.whaleal.ai.AiConfig;
+
+public class Demo {
+    public static void main(String[] args) {
+        AiConfig config = AiConfig.create()
+            .setProvider("deepseek")
+            .setApiKey("your-api-key")
+            .setModel("deepseek-chat");
+        
+        String response = Ai.chat(config, "用 Java 实现冒泡排序");
+        System.out.println(response);
+    }
+}
+```
+
+#### 2. 多轮对话
+
+```java
+import com.whaleal.ai.Ai;
+import com.whaleal.ai.AiConfig;
+import com.whaleal.ai.Message;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MultiTurnDemo {
+    public static void main(String[] args) {
+        AiConfig config = AiConfig.create()
+            .setProvider("deepseek")
+            .setApiKey("your-api-key");
+        
+        List<Message> messages = new ArrayList<>();
+        messages.add(new Message("system", "你是一位 Java 专家"));
+        messages.add(new Message("user", "什么是 Spring 框架？"));
+        
+        String response = Ai.chat(config, messages);
+        System.out.println(response);
+    }
+}
+```
+
+#### 3. Spring Boot 自动配置
+
+```yaml
+# application.yml
+wai:
+  default-provider: deepseek
+  configs:
+    deepseek:
+      api-key: ${DEEPSEEK_API_KEY}
+      model: deepseek-chat
+    openai:
+      api-key: ${OPENAI_API_KEY}
+      model: gpt-4
+```
+
+```java
+@RestController
+public class ChatController {
+    
+    @Autowired
+    private AiService aiService;
+    
+    @GetMapping("/chat")
+    public String chat(@RequestParam String prompt) {
+        return aiService.chat(prompt);
+    }
+}
+```
+
+## 项目结构
+
+```
+wai/
+├── wai4j-core              # 核心模块 (统一 API、配置、模型)
+├── wai4j-deepseek          # DeepSeek 适配器
+├── wai-openai            # OpenAI 适配器
+├── wai-gemini            # Google Gemini 适配器
+├── wai-glm               # 智谱 GLM 适配器
+├── wai-qwen              # 阿里云 Qwen 适配器
+├── wai-doubao            # 字节豆包适配器
+├── wai-grok              # X 平台 Grok 适配器
+├── wai-local             # 本地模型 (LGBM 等)
+├── wai-router            # 模型路由和负载均衡
+├── wai4j-spring-boot-starter  # Spring Boot 自动配置
+└── wai-example           # 示例代码
+```
+
+## 许可证
+
+Apache License 2.0

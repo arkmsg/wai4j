@@ -1,0 +1,6 @@
+com/whaleal/ai/qwen/QwenService$ChatMessage.class
+com/whaleal/ai/qwen/QwenService$ChatCompletionRequest.class
+com/whaleal/ai/qwen/QwenService$ChatCompletionResponse$Choice.class
+com/whaleal/ai/qwen/QwenService$QwenApi.class
+com/whaleal/ai/qwen/QwenService.class
+com/whaleal/ai/qwen/QwenService$ChatCompletionResponse.class

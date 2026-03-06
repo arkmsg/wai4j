@@ -1,0 +1,44 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.whaleal.ai</groupId>
+        <artifactId>wai4j</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>wai-local</artifactId>
+    <packaging>jar</packaging>
+
+    <name>WAI Local</name>
+    <description>WAI - Local Model Provider (LGBM, etc.)</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.whaleal.ai</groupId>
+            <artifactId>wai-core</artifactId>
+        </dependency>
+
+        <!-- LightGBM -->
+        <dependency>
+            <groupId>com.microsoft.ml.lightgbm</groupId>
+            <artifactId>lightgbmlib</artifactId>
+            <version>4.3.0</version>
+        </dependency>
+
+        <!-- ONNX Runtime for local model inference -->
+        <dependency>
+            <groupId>com.microsoft.onnxruntime</groupId>
+            <artifactId>onnxruntime</artifactId>
+            <version>1.16.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+
+</project>
