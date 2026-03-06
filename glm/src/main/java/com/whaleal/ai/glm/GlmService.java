@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 智谱 GLM 服务实现
  */
-public class GlmService implements AiService, AiServiceProvider {
+public class GlmService implements AiService, AiServiceProvider, AiServiceEx {
 
     private static final String DEFAULT_BASE_URL = "https://open.bigmodel.cn/api/paas/v4";
     private static final String DEFAULT_MODEL = "glm-4";
@@ -205,5 +205,20 @@ public class GlmService implements AiService, AiServiceProvider {
             @com.fasterxml.jackson.annotation.JsonProperty("finish_reason")
             private String finishReason;
         }
+    }
+
+    @Override
+    public com.whaleal.ai.EmbeddingResponse embedding(AiConfig config, List<String> texts) {
+        throw new AiException("GLM embedding not implemented yet");
+    }
+
+    @Override
+    public com.whaleal.ai.ListModelsResponse listModels(AiConfig config) {
+        throw new AiException("GLM listModels not implemented yet");
+    }
+
+    @Override
+    public com.whaleal.ai.ModerationResponse moderation(AiConfig config, String text) {
+        throw new AiException("GLM moderation not implemented yet");
     }
 }

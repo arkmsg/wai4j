@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 字节豆包服务实现
  */
-public class DoubaoService implements AiService, AiServiceProvider {
+public class DoubaoService implements AiService, AiServiceProvider, AiServiceEx {
 
     private static final String DEFAULT_BASE_URL = "https://ark.cn-beijing.volces.com/api/v3";
     private static final String DEFAULT_MODEL = "doubao-pro";
@@ -205,5 +205,20 @@ public class DoubaoService implements AiService, AiServiceProvider {
             @com.fasterxml.jackson.annotation.JsonProperty("finish_reason")
             private String finishReason;
         }
+    }
+
+    @Override
+    public com.whaleal.ai.EmbeddingResponse embedding(AiConfig config, List<String> texts) {
+        throw new AiException("Doubao embedding not implemented yet");
+    }
+
+    @Override
+    public com.whaleal.ai.ListModelsResponse listModels(AiConfig config) {
+        throw new AiException("Doubao listModels not implemented yet");
+    }
+
+    @Override
+    public com.whaleal.ai.ModerationResponse moderation(AiConfig config, String text) {
+        throw new AiException("Doubao moderation not implemented yet");
     }
 }

@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Google Gemini 服务实现
  */
-public class GeminiService implements AiService, AiServiceProvider {
+public class GeminiService implements AiService, AiServiceProvider, AiServiceEx {
 
     private static final String DEFAULT_BASE_URL = "https://generativelanguage.googleapis.com/v1beta/";
     private static final String DEFAULT_MODEL = "gemini-2.0-flash";
@@ -209,5 +209,20 @@ public class GeminiService implements AiService, AiServiceProvider {
             @com.fasterxml.jackson.annotation.JsonProperty("finishReason")
             private String finishReason;
         }
+    }
+
+    @Override
+    public com.whaleal.ai.EmbeddingResponse embedding(AiConfig config, List<String> texts) {
+        throw new AiException("Gemini embedding not implemented yet");
+    }
+
+    @Override
+    public com.whaleal.ai.ListModelsResponse listModels(AiConfig config) {
+        throw new AiException("Gemini listModels not implemented yet");
+    }
+
+    @Override
+    public com.whaleal.ai.ModerationResponse moderation(AiConfig config, String text) {
+        throw new AiException("Gemini moderation not implemented yet");
     }
 }

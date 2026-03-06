@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * X 平台 Grok 服务实现
  */
-public class GrokService implements AiService, AiServiceProvider {
+public class GrokService implements AiService, AiServiceProvider, AiServiceEx {
 
     private static final String DEFAULT_BASE_URL = "https://api.x.ai/v1";
     private static final String DEFAULT_MODEL = "grok-2-1212";
@@ -205,5 +205,20 @@ public class GrokService implements AiService, AiServiceProvider {
             @com.fasterxml.jackson.annotation.JsonProperty("finish_reason")
             private String finishReason;
         }
+    }
+
+    @Override
+    public com.whaleal.ai.EmbeddingResponse embedding(AiConfig config, List<String> texts) {
+        throw new AiException("Grok embedding not implemented yet");
+    }
+
+    @Override
+    public com.whaleal.ai.ListModelsResponse listModels(AiConfig config) {
+        throw new AiException("Grok listModels not implemented yet");
+    }
+
+    @Override
+    public com.whaleal.ai.ModerationResponse moderation(AiConfig config, String text) {
+        throw new AiException("Grok moderation not implemented yet");
     }
 }

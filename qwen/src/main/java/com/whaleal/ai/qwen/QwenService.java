@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 阿里云 Qwen 服务实现
  */
-public class QwenService implements AiService, AiServiceProvider {
+public class QwenService implements AiService, AiServiceProvider, AiServiceEx {
 
     private static final String DEFAULT_BASE_URL = "https://dashscope.aliyuncs.com/api/v1";
     private static final String DEFAULT_MODEL = "qwen-max";
@@ -205,5 +205,20 @@ public class QwenService implements AiService, AiServiceProvider {
             @com.fasterxml.jackson.annotation.JsonProperty("finish_reason")
             private String finishReason;
         }
+    }
+
+    @Override
+    public com.whaleal.ai.EmbeddingResponse embedding(AiConfig config, List<String> texts) {
+        throw new AiException("Qwen embedding not implemented yet");
+    }
+
+    @Override
+    public com.whaleal.ai.ListModelsResponse listModels(AiConfig config) {
+        throw new AiException("Qwen listModels not implemented yet");
+    }
+
+    @Override
+    public com.whaleal.ai.ModerationResponse moderation(AiConfig config, String text) {
+        throw new AiException("Qwen moderation not implemented yet");
     }
 }
